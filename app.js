@@ -1,8 +1,7 @@
 const express =require('express');
 const app = express();
-
 const authRoutes= require("./routes/auth")
-
+const post =require('./routes/posts')
 
 app.use(express.json());
 const mongoose = require('mongoose')
@@ -26,6 +25,7 @@ app.get('/protected',  (req, res) => {
 
 app.use("/auth",authRoutes)
 
+app.use("/post",post)
 // instance variable from express
 
 
