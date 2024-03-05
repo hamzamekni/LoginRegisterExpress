@@ -2,7 +2,8 @@ const express =require('express');
 const app = express();
 const authRoutes= require("./routes/auth")
 const post =require('./routes/posts')
-
+const produit = require('./routes/produit')
+const categorie = require('./routes/categories')
 app.use(express.json());
 const mongoose = require('mongoose')
 const dotenv = require( 'dotenv');
@@ -24,8 +25,9 @@ app.get('/protected',  (req, res) => {
 });
 
 app.use("/auth",authRoutes)
-
+app.use('/',categorie)
 app.use("/post",post)
+app.use('/',produit)
 // instance variable from express
 
 
